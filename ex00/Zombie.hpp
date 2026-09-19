@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 19:02:36 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/17 21:28:56 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/09/19 18:29:50 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,9 @@ class	Zombie
 	
 	public:
 		Zombie(std::string name);
-		
-		void		setName(const std::string &str);
-
-		std::string	getName() const;
-
-		void		announce() const;
-		
 		~Zombie();
-			
+
+		void	announce() const;
 };
 
 Zombie*	newZombie(std::string name);

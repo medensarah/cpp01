@@ -6,29 +6,29 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 19:01:54 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/19 18:47:15 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/09/19 18:41:22 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include "Zombie.hpp"
 
 int	main()
 {
-	Zombie	*zombie;
-
-	// Create zombie with heap
-	zombie = newZombie("dogo");
-	if (!zombie)
-		return (1);
-
-	zombie->announce();
-
-	// Create zombie with stack
-	randomChump("John wick");
-
-	zombie->announce();
+	Zombie		*zombies;
+	int			N = 6;
+	std::string	name = "Soldier";
 	
-	delete zombie;
+	// Create zombieHorde with heap
+	zombies = zombieHorde(N, name);
+	if (!zombies)
+		return (1);
+	
+	// Announce all zombies
+	for (int i = 0; i < N; i++)
+		zombies[i].announce();
+
+	delete[] zombies;
 	return (0);
 }

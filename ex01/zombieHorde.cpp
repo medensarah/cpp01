@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 19:01:54 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/19 18:47:15 by smedenec         ###   ########.fr       */
+/*   Created: 2026/09/16 19:02:27 by smedenec          #+#    #+#             */
+/*   Updated: 2026/09/19 18:54:32 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
-int	main()
+Zombie*	zombieHorde(int N, std::string name)
 {
-	Zombie	*zombie;
+	if (N <= 0)
+		return (NULL);
 
-	// Create zombie with heap
-	zombie = newZombie("dogo");
+	Zombie	*zombie = new (std::nothrow) Zombie[N];
 	if (!zombie)
-		return (1);
+		return (NULL);
 
-	zombie->announce();
-
-	// Create zombie with stack
-	randomChump("John wick");
-
-	zombie->announce();
-	
-	delete zombie;
-	return (0);
+	for (int i = 0; i < N ; i++)
+		zombie[i].setName(name);
+	return (zombie);
 }

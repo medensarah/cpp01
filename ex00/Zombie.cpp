@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 19:02:33 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/17 21:37:37 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/09/19 18:29:43 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,9 @@ Zombie::Zombie(std::string name)
 	this->name = name;
 }
 
-void	Zombie::setName(const std::string &str)
+Zombie::~Zombie()
 {
-	name = str;
-}
-
-std::string	Zombie::getName() const
-{
-	return (name);
+	std::cout << name << " is destroyed." << std::endl;
 }
 
 void	Zombie::announce() const

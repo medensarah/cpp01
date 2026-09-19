@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 19:01:54 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/19 18:47:15 by smedenec         ###   ########.fr       */
+/*   Created: 2026/09/16 19:02:33 by smedenec          #+#    #+#             */
+/*   Updated: 2026/09/19 17:16:57 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
-int	main()
+Zombie::Zombie()
 {
-	Zombie	*zombie;
+}
 
-	// Create zombie with heap
-	zombie = newZombie("dogo");
-	if (!zombie)
-		return (1);
+Zombie::~Zombie()
+{
+	std::cout << name << " is destroyed." << std::endl;
+}
 
-	zombie->announce();
+void	Zombie::setName(const std::string &str)
+{
+	this->name = str;
+}
 
-	// Create zombie with stack
-	randomChump("John wick");
-
-	zombie->announce();
-	
-	delete zombie;
-	return (0);
+void	Zombie::announce() const
+{
+	std::cout << name << " : " << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
