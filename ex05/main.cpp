@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 21:13:46 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/27 19:09:34 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/09/27 20:34:32 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,15 @@
 
 int	main()
 {
-	std::string	lev = "DEBUG";
 	Harl	harl;
 
-	harl.complain(lev);
+	harl.complain("");
+	harl.complain("INVALID");
+
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	
 	return (0);
 }
