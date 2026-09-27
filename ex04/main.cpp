@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 21:13:46 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/19 21:56:17 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/09/27 17:06:22 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,65 +22,62 @@ int	main(int argc, char **argv)
 		std::cerr << "Error: wrong number of arguments." << std::endl;
 		return (1);
 	}
-	if (!argv[2] || !argv[2][0])
+	if (!argv[2][0])
 	{
 		std::cerr << "Error: s1 cannot be empty." << std::endl;
 		return (1);
 	}
-	
 	//init
 	std::string	filename = argv[1];
 	std::string	s1 = argv[2];
 	std::string	s2 = argv[3];
 
-	// Reading file
-	std::ifstream input(filename.c_str());
-	// Test if file is open
-	if (!input)
+	// input
+	std::ifstream fd(filename.c_str());
+	if (!fd)
 	{
 		std::cerr << "Error: could not open input file." << std::endl;
 		return (1);
 	}
 	
-	// Rename new file
+	// output
 	std::string	fileReplace = filename + ".replace";
-	// Create new file
-	std::ofstream	output(fileReplace.c_str());
-	// Test if file is create
-	if (!output)
+	std::ofstream	new_fd(fileReplace.c_str());
+	if (!new_fd)
 	{
 		std::cerr << "Error: could not create output file." << std::endl;
 		return (1);
 	}
-	
-	// Display Before
-	std::cout << "file: " << filename << std::endl;
-	std::cout << "s1: " << s1 << std::endl;
-	std::cout << "s2: " << s2 << std::endl;
 
-	// Read file
+	// buf
 	std::ostringstream	buf;
-	buf << input.rdbuf();
-
+	buf << fd.rdbuf();
+	if (!fd.eof() && fd.fail())
+	{
+		std::cerr << "Error: could not read input file." << std::endl;
+		return (1);
+	}
 	std::string	content = buf.str();
 
 	// Replace every occurrence of s1 by s2
 	std::string	res;
 	std::size_t	pos = 0;
 	std::size_t	found;
-
 	while ((found = content.find(s1, pos)) != std::string::npos)
 	{
 		res += content.substr(pos, found - pos);
 		res += s2;
 		pos = found + s1.length();
 	}
-
-	// Add the remaining part of the file
 	res += content.substr(pos);
 
-	// Write the result into the new file
-	output << res;
+	// Write
+	new_fd << res;
+	if (!new_fd)
+	{
+		std::cerr << "Error: could not write to output file." << std::endl;
+		return (1);
+	}
 
 	return (0);
 }
