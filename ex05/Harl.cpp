@@ -6,12 +6,10 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 18:24:13 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/27 19:36:42 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/09/27 20:43:51 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
 #include "Harl.hpp"
 
 Harl::Harl()

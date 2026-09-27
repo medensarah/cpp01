@@ -6,13 +6,14 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 18:24:17 by smedenec          #+#    #+#             */
-/*   Updated: 2026/09/27 20:31:39 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/09/27 20:43:47 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HARL_HPP
 #define HARL_HPP
 
+#include <iostream>
 #include <string>
 
 class	Harl
